@@ -4,6 +4,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import format from "date-fns/format";
 import InfoCard from "../components/InfoCard";
+import MapMe from "../components/MapMe";
+import MapMe1 from "../components/MapMe1";
+import getCenter from "geolib/es/getCenter";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -47,6 +50,10 @@ function Search({ searchResults }) {
               )
             )}
           </div>
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <MapMe1 searchResults={searchResults} />
         </section>
       </main>
       <Footer />
