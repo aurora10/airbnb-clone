@@ -23,7 +23,7 @@ function MapMe1({ searchResults }) {
 
     zoom: 11,
   });
-  console.log(selectedLocation);
+
   return (
     <GoogleMapReact
       //mapContainerStyle={containerStyle}
@@ -33,15 +33,13 @@ function MapMe1({ searchResults }) {
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
       {searchResults.map((result) => (
-        // <div key={result.long}>
         <Marker
-          onClick={() => setSelectedLocation(result.long)}
           lat={result.lat}
           lng={result.long}
           offsetLeft={-20}
           offsetTop={-10}
+          titles={result.title}
         />
-        // </div>
       ))}
     </GoogleMapReact>
   );
@@ -49,14 +47,14 @@ function MapMe1({ searchResults }) {
 
 export default MapMe1;
 
-export async function getServerSideProps() {
-  const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
-    (res) => res.json()
-  );
+// export async function getServerSideProps() {
+//   const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
+//     (res) => res.json()
+//   );
 
-  return {
-    props: {
-      searchResults,
-    },
-  };
-}
+//   return {
+//     props: {
+//       searchResults,
+//     },
+//   };
+// }
