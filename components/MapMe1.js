@@ -34,6 +34,7 @@ function MapMe1({ searchResults }) {
     >
       {searchResults.map((result) => (
         <Marker
+          key={result.long}
           lat={result.lat}
           lng={result.long}
           offsetLeft={-20}
@@ -46,15 +47,3 @@ function MapMe1({ searchResults }) {
 }
 
 export default MapMe1;
-
-// export async function getServerSideProps() {
-//   const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
-//     (res) => res.json()
-//   );
-
-//   return {
-//     props: {
-//       searchResults,
-//     },
-//   };
-// }
